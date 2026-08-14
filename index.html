@@ -4,6 +4,8 @@
 <meta charset="utf-8">
 <script>
   (function(){
+    // A manual language-switcher click (?lang=en) always wins; only auto-redirect on a fresh visit.
+    if (/[?&]lang=en\b/.test(location.search)) { return; }
     var langs = navigator.languages || [navigator.language || navigator.userLanguage || ''];
     for (var i = 0; i < langs.length; i++) {
       if (/^ja\b/i.test(langs[i])) { location.replace('ja/'); return; }
