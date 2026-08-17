@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<script>
+  (function(){
+    // A manual language-switcher click (?lang=en) always wins; only auto-redirect on a fresh visit.
+    if (/[?&]lang=en\b/.test(location.search)) { return; }
+    var langs = navigator.languages || [navigator.language || navigator.userLanguage || ''];
+    for (var i = 0; i < langs.length; i++) {
+      if (/^ja\b/i.test(langs[i])) { location.replace('ja/'); return; }
+    }
+  })();
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy | PomodoroFlip</title>
+<style>
+  :root{
+    --ink:#2b211b; --paper:#f3ece2; --paper-raised:#fbf6ee;
+    --tomato:#c5432b; --sage:#3f7566; --line:rgba(43,33,27,0.15); --muted:#7c6c5c;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --ink:#f2e9dd; --paper:#1c1814; --paper-raised:#26211c; --tomato:#e8735a; --sage:#7fbba8; --line:rgba(242,233,221,0.14); --muted:#b2a191; }
+  }
+  *{ box-sizing:border-box; }
+  body{
+    margin:0; background:var(--paper); color:var(--ink);
+    font-family:-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    line-height:1.8; padding:48px 20px 80px;
+  }
+  main{ max-width:680px; margin:0 auto; }
+  h1{ font-size:1.7rem; margin-bottom:4px; }
+  .meta{ color:var(--muted); font-size:0.85rem; margin-bottom:36px; }
+  h2{ font-size:1.1rem; margin-top:2.2em; border-top:1px solid var(--line); padding-top:1.2em; }
+  table{ width:100%; border-collapse:collapse; margin:1em 0; }
+  th,td{ text-align:left; padding:8px 10px; border-bottom:1px solid var(--line); font-size:0.92rem; }
+  th{ color:var(--muted); font-weight:600; }
+  code{ background:var(--paper-raised); padding:2px 6px; border-radius:4px; font-size:0.85em; }
+  ul{ padding-left:1.4em; }
+  a{ color:var(--tomato); }
+  .lang-switch{ font-size:0.85rem; margin-bottom:8px; }
+</style>
+</head>
+<body>
+<main>
+  <p class="lang-switch">English / <a href="ja/">日本語</a></p>
+  <h1>Privacy Policy (PomodoroFlip)</h1>
+  <p class="meta">Last updated: August 2026</p>
+
+  <p>PomodoroFlip (the "App") is an Android app provided by its developer (the "Developer"). This policy explains how personal information is handled when you use the App.</p>
+
+  <h2>1. Data Collection</h2>
+  <p>The App <strong>does not collect any personal information.</strong></p>
+  <ul>
+    <li>No personally identifiable information is collected, such as your name, email address, or location</li>
+    <li>No device identifiers (such as advertising ID) are collected</li>
+    <li>No usage analytics are collected</li>
+    <li>No crash reports are collected</li>
+  </ul>
+
+  <h2>2. Network Communication</h2>
+  <p>The App <strong>does not perform any internet communication.</strong> It works entirely offline, and no data is ever sent to a server. The App is not even granted the permission needed to access the network (the Internet permission).</p>
+
+  <h2>3. Data Stored Within the App</h2>
+  <p>The App stores the following data <strong>only on your device</strong>. This data is never transmitted anywhere.</p>
+  <ul>
+    <li>Records of completed work sessions (date/time and duration) — used for the calendar heatmap on the History screen</li>
+    <li>Your work/break duration settings</li>
+  </ul>
+  <p>This data is deleted from your device when you uninstall the App.</p>
+
+  <h2>4. Sharing with Third Parties</h2>
+  <p>The App does not provide or share any data with third parties (and since it never communicates externally, there is no mechanism by which it could).</p>
+
+  <h2>5. Permissions</h2>
+  <table>
+    <tr><th>Permission</th><th>Purpose</th></tr>
+    <tr><td><code>POST_NOTIFICATIONS</code></td><td>To notify you when work/break sessions start and end</td></tr>
+    <tr><td>Foreground service</td><td>To keep the timer running while your phone is face down or the screen is locked</td></tr>
+    <tr><td><code>VIBRATE</code></td><td>For vibration feedback on notifications</td></tr>
+  </table>
+
+  <h2>6. Third-Party Material Credits</h2>
+  <p>Some of the App's notification sounds use Google's "Material Design Sound Resources" (<a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> license).</p>
+
+  <h2>7. Contact</h2>
+  <p>If you have any questions about this policy, please contact <a href="mailto:blorpdrift@gmail.com">blorpdrift@gmail.com</a>.</p>
+
+  <h2>8. Changes to This Policy</h2>
+  <p>This policy may be updated as the App's features change. Any changes will be reflected on this page.</p>
+</main>
+</body>
+</html>
