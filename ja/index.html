@@ -22,6 +22,7 @@
   h1{ font-size:1.7rem; margin-bottom:4px; }
   .meta{ color:var(--muted); font-size:0.85rem; margin-bottom:36px; }
   h2{ font-size:1.1rem; margin-top:2.2em; border-top:1px solid var(--line); padding-top:1.2em; }
+  h3{ font-size:1rem; margin-top:1.6em; margin-bottom:0.2em; }
   table{ width:100%; border-collapse:collapse; margin:1em 0; }
   th,td{ text-align:left; padding:8px 10px; border-bottom:1px solid var(--line); font-size:0.92rem; }
   th{ color:var(--muted); font-weight:600; }
@@ -35,7 +36,7 @@
 <main>
   <p class="lang-switch"><a href="../?lang=en">English</a> / 日本語</p>
   <h1>プライバシーポリシー(ポモドーロフリップ)</h1>
-  <p class="meta">最終更新日: 2026年8月</p>
+  <p class="meta">最終更新日: 2026年10月</p>
 
   <p>「ポモドーロフリップ」(以下「本アプリ」)は、開発者(以下「当方」)が提供するAndroidアプリです。本ポリシーは、本アプリの利用に関する個人情報の取り扱いについて説明します。</p>
 
@@ -54,21 +55,34 @@
   <h2>3. アプリ内に保存されるデータ</h2>
   <p>本アプリは、以下のデータを<strong>お使いの端末内にのみ</strong>保存します。これらのデータが外部に送信されることはありません。</p>
   <ul>
-    <li>完了した作業セッションの記録(日時・作業時間)— 履歴画面のヒートマップ表示に使用</li>
-    <li>作業時間・休憩時間の設定値</li>
+    <li>完了した作業セッションの記録(完了日時・作業時間)</li>
+    <li>中断した作業の記録(中断日時・中断までの作業時間)</li>
+    <li>休憩の記録(終了日時・休憩時間)</li>
+    <li>作業時間・休憩時間の設定値、通知音の設定</li>
   </ul>
-  <p>これらのデータは、本アプリをアンインストールすると端末から削除されます。</p>
+  <p>作業・中断・休憩の記録は、履歴画面(日・週・月)の集計とグラフ表示に使用します。</p>
+  <p>これらのデータは、本アプリをアンインストールすると端末から削除されます(下記の書き出したファイルとバックアップは除きます)。</p>
+
+  <h3>履歴データの書き出し(エクスポート)</h3>
+  <p>データ管理画面から、履歴データをJSONファイルとして書き出せます(端末への保存、または他のアプリへの共有)。書き出しはお客様が操作したときだけ行われ、保存先や共有先はお客様が選びます。共有先に渡ったデータの取り扱いは、共有先のアプリやサービスの規定に従います。</p>
+
+  <h3>Androidのバックアップ機能</h3>
+  <p>本アプリはAndroidのバックアップ機能に対応しています。端末の設定でバックアップを有効にしている場合、上記のデータはAndroid OSによって、お客様のGoogleアカウントのバックアップや機種変更時のデータ移行に含まれることがあります。これはAndroid OSの機能によるもので、本アプリ自身がデータを送信するものではありません。</p>
 
   <h2>4. 第三者への提供</h2>
-  <p>本アプリは、いかなるデータも第三者へ提供・共有しません(そもそも外部との通信を行わないため、提供する手段自体がありません)。</p>
+  <p>本アプリは、いかなるデータも第三者へ提供・共有しません(そもそも外部との通信を行わないため、提供する手段自体がありません)。お客様ご自身が上記の書き出し機能で共有する場合を除きます。</p>
 
   <h2>5. 権限について</h2>
+  <p>本アプリが使用する権限は以下の通りで、いずれもタイマーと通知の動作に必要な範囲に限られます。</p>
   <table>
     <tr><th>権限</th><th>用途</th></tr>
-    <tr><td><code>POST_NOTIFICATIONS</code></td><td>作業/休憩の開始・終了をお知らせするため</td></tr>
-    <tr><td>フォアグラウンドサービス</td><td>スマホが裏返し・画面ロック中でもタイマーを継続動作させるため</td></tr>
-    <tr><td><code>VIBRATE</code></td><td>通知時の振動フィードバックのため</td></tr>
+    <tr><td><code>POST_NOTIFICATIONS</code></td><td>作業/休憩の開始・終了や中断をお知らせするため</td></tr>
+    <tr><td><code>FOREGROUND_SERVICE</code><br><code>FOREGROUND_SERVICE_SPECIAL_USE</code></td><td>スマホを裏返している間や画面が消えている間も、タイマーと裏返しの検知を続けるため</td></tr>
+    <tr><td><code>WAKE_LOCK</code></td><td>タイマー動作中に端末がスリープして、時間の計測や裏返しの検知が止まらないようにするため(タイマーを止めると解除します)</td></tr>
+    <tr><td><code>VIBRATE</code></td><td>通知時の振動のため</td></tr>
   </table>
+  <p>上記のほか、Androidの標準ライブラリが自動で追加する、本アプリの内部でのみ使用する権限(<code>DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION</code>)が含まれます。外部とのやりとりには使用しません。</p>
+  <p>また、スマホの向き(表向き・裏向き)を判定するために加速度センサーを使用します(権限は不要です)。センサーの値はその場で向きの判定に使うだけで、保存も送信もしません。</p>
 
   <h2>6. サードパーティ素材のクレジット</h2>
   <p>本アプリの通知音の一部には、Googleが提供する「Material Design Sound Resources」を使用しています(<a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>ライセンス)。</p>

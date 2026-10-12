@@ -32,6 +32,7 @@
   h1{ font-size:1.7rem; margin-bottom:4px; }
   .meta{ color:var(--muted); font-size:0.85rem; margin-bottom:36px; }
   h2{ font-size:1.1rem; margin-top:2.2em; border-top:1px solid var(--line); padding-top:1.2em; }
+  h3{ font-size:1rem; margin-top:1.6em; margin-bottom:0.2em; }
   table{ width:100%; border-collapse:collapse; margin:1em 0; }
   th,td{ text-align:left; padding:8px 10px; border-bottom:1px solid var(--line); font-size:0.92rem; }
   th{ color:var(--muted); font-weight:600; }
@@ -45,7 +46,7 @@
 <main>
   <p class="lang-switch">English / <a href="ja/">日本語</a></p>
   <h1>Privacy Policy (PomodoroFlip)</h1>
-  <p class="meta">Last updated: August 2026</p>
+  <p class="meta">Last updated: October 2026</p>
 
   <p>PomodoroFlip (the "App") is an Android app provided by its developer (the "Developer"). This policy explains how personal information is handled when you use the App.</p>
 
@@ -64,21 +65,34 @@
   <h2>3. Data Stored Within the App</h2>
   <p>The App stores the following data <strong>only on your device</strong>. This data is never transmitted anywhere.</p>
   <ul>
-    <li>Records of completed work sessions (date/time and duration) — used for the calendar heatmap on the History screen</li>
-    <li>Your work/break duration settings</li>
+    <li>Records of completed work sessions (completion time and duration)</li>
+    <li>Records of interrupted work (time of interruption and how long you had worked)</li>
+    <li>Records of breaks (end time and duration)</li>
+    <li>Your work/break duration settings and notification sound settings</li>
   </ul>
-  <p>This data is deleted from your device when you uninstall the App.</p>
+  <p>The work, interruption and break records are used for the totals and charts on the History screen (day, week and month).</p>
+  <p>This data is deleted from your device when you uninstall the App (except for exported files and backups, described below).</p>
+
+  <h3>Exporting Your History</h3>
+  <p>From the Data Management screen, you can export your history as a JSON file, either saving it on your device or sharing it with another app. Exporting happens only when you choose to do it, and you choose where the file goes. Once shared, the data is handled according to the policies of the app or service you shared it with.</p>
+
+  <h3>Android Backup</h3>
+  <p>The App supports Android's backup feature. If backup is turned on in your device settings, Android may include the data above in your Google Account backup or in a transfer to a new device. This is done by Android itself; the App does not send any data.</p>
 
   <h2>4. Sharing with Third Parties</h2>
-  <p>The App does not provide or share any data with third parties (and since it never communicates externally, there is no mechanism by which it could).</p>
+  <p>The App does not provide or share any data with third parties (and since it never communicates externally, there is no mechanism by which it could), except when you share it yourself using the export feature above.</p>
 
   <h2>5. Permissions</h2>
+  <p>The App uses the following permissions, all limited to what the timer and its notifications need to work.</p>
   <table>
     <tr><th>Permission</th><th>Purpose</th></tr>
-    <tr><td><code>POST_NOTIFICATIONS</code></td><td>To notify you when work/break sessions start and end</td></tr>
-    <tr><td>Foreground service</td><td>To keep the timer running while your phone is face down or the screen is locked</td></tr>
-    <tr><td><code>VIBRATE</code></td><td>For vibration feedback on notifications</td></tr>
+    <tr><td><code>POST_NOTIFICATIONS</code></td><td>To notify you when work/break sessions start and end, or when a session is interrupted</td></tr>
+    <tr><td><code>FOREGROUND_SERVICE</code><br><code>FOREGROUND_SERVICE_SPECIAL_USE</code></td><td>To keep the timer and flip detection running while your phone is face down or the screen is off</td></tr>
+    <tr><td><code>WAKE_LOCK</code></td><td>To keep the device from sleeping while the timer is running, so timing and flip detection don't stop (released when you stop the timer)</td></tr>
+    <tr><td><code>VIBRATE</code></td><td>For vibration on notifications</td></tr>
   </table>
+  <p>The App also includes a permission added automatically by a standard Android library (<code>DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION</code>), which is used only inside the App and never to communicate with anything outside it.</p>
+  <p>The App also uses the accelerometer to tell whether your phone is face up or face down (no permission is required for this). Sensor readings are used only for that check on the spot and are never stored or sent anywhere.</p>
 
   <h2>6. Third-Party Material Credits</h2>
   <p>Some of the App's notification sounds use Google's "Material Design Sound Resources" (<a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> license).</p>
